@@ -13,12 +13,14 @@
     />
     <link rel="stylesheet" href="assets/style/style.css" />
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js"
-      integrity="sha256-I5ZXO8KcMnqNkrXU7baGig70nATYjNDnxxA2d40PcR8="
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
       crossorigin="anonymous"
     ></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/en-ca.js"></script>
+
+    <script src="assets/scripts/app.js"></script>
   </head>
   <body>
     <div class="container">
@@ -27,8 +29,8 @@
         <h3>Choo Choo. Chee Chee.</h3>
       </div>
 
-      <div class="infoDisplay">
-        <h4>CurrentTrain Schedule</h4>
+      <div id="infoDisplay" class="border border-primary rounded">
+        <h4 class="p-3 mb-2 bg-primary text-white">Current Train Schedule</h4>
         <table class="table">
           <thead>
             <th>Train Name</th>
@@ -40,8 +42,8 @@
           <tbody></tbody>
         </table>
       </div>
-      <div>
-        <h4>Add Train</h4>
+      <div id="userTrainInput" class="border border-primary rounded">
+        <h4 class="p-3 mb-2 bg-primary text-white">Add Train</h4>
         <form action="">
           <div class="form-group">
             <label for="trainName">Train Name</label><br />
@@ -55,16 +57,17 @@
             <label for="trainTime"
               >First Train Time (HH:mm) - military time</label
             ><br />
-            <input type="text" id="trainTime" class="form-control" />
+            <input type="time" id="trainTime" class="form-control" />
           </div>
           <div class="form-group">
             <label for="trainFrequency">Frequency (min)</label><br />
             <input type="text" id="trainFrequency" class="form-control" />
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" id="submit" class="btn btn-primary">
+            Submit
+          </button>
         </form>
       </div>
     </div>
-    <script src="assets/scripts/app.js"></script>
   </body>
 </html>

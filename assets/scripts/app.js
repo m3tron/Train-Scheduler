@@ -9,3 +9,41 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
+
+$(document).ready(function() {
+  database.ref().on("child_added", function(snapshot, prevKey) {
+    var data = snapshot.val();
+
+    var tr = $("<tr>");
+    tr.append($("<th class='font-weight-normal'>").text(data.trainName));
+    tr.append($("<th class='font-weight-normal'>").text(data.trainDestination));
+    tr.append($("<th class='font-weight-normal'>").text(data.trainFrequency));
+    tr.append($("<th class='font-weight-normal'>").text(data.trainTime));
+
+    $("tbody").append(tr);
+  });
+
+  $("#submit").on("click", function(e) {
+    e.preventDefault();
+    var name = $("#trainName")
+      .val()
+      .trim();
+    var destination = $("#trainDestination")
+      .val()
+      .trim();
+    var time = $("#trainTime")
+      .val()
+      .trim();
+    var frequency = $("#trainFrequency")
+      .val()
+      .trim();
+    console.log(name, destination, time, frequency);
+
+    database.ref().push({
+      trainName: name,
+      trainDestination: destination,
+      trainTime: time,
+      trainFrequency: frequency
+    });
+  });
+});
