@@ -42,8 +42,6 @@ $(document).ready(function() {
   });
 
   $("#submit").on("click", function(e) {
-    e.preventDefault();
-
     //stores data from input into variables
     var name = $("#trainName")
       .val()
