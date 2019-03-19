@@ -1,5 +1,7 @@
 .jumbotron {
   text-align: center;
+  background-color: purple;
+  color: white;
 }
 
 #infoDisplay {
@@ -12,8 +14,4 @@
 
 #submit {
   margin: 10px;
-}
-
-tr {
-  font: 4px;
 }
